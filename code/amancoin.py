@@ -87,7 +87,12 @@ class Blockchain:  # Helps to create blocks
 
         return True #if it wasn't false til now then it is valid, and hence true
 
-    def add_transactions(self,)    
+    def add_transactions(self, sender, receiver, amount):
+        self.transactions.append({'sender': sender,
+                                   'receiver':receiver,
+                                   'amount':amount}) # we create a dictionary and append it to the list
+        previous_block = self.get_previous_block() #gets the previous block using the method defined above
+        return previous_block['index'] + 1 #updates the block index by 1.This new block will have the transactions in it.                               
 # Part2-Mining the blockchain class. 
 
 # creating the Web App
