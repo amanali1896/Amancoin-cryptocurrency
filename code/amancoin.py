@@ -89,7 +89,7 @@ class Blockchain:  # Helps to create blocks
 
         return True #if it wasn't false til now then it is valid, and hence true
 
-    def add_transactions(self, sender, receiver, amount):
+    def add_transaction(self, sender, receiver, amount):
         self.transactions.append({'sender': sender,
                                    'receiver':receiver,
                                    'amount':amount}) # we create a dictionary and append it to the list
@@ -126,6 +126,7 @@ app = Flask(__name__) # creating the app
 #creating an address for the node on Port 5000
     #created to give a miner incentives & to have an unique address
 node_address = str(uuid4()).replace('-',' ') #this is the address of the node on port 5000
+                                             # replaces - with a blank.
 
 
 # mining the blockchain
@@ -139,13 +140,15 @@ def mine_block():
     previous_proof = previous_block['proof']#gets the proof of work of the previous block
     proof = blockchain.proof_of_work(previous_proof) #proof of new block is calculated based on the previous block's proof of work
     previous_hash = blockchain.hash(previous_block) #calculates the hexadecimal hash
+    blockchain.add_transaction(sender = node_address, receiver = 'Aman', amount = 5) #5 coins as incentives to the miner
     block = blockchain.create_block(proof,previous_hash) #new block is created based on the information that's given.
                                                          #information is Proof of work and the hash of the previous block
     response = {'message':'The block was sucessfully mined.',
                 'index':block['index'],
                 'timestamp': block['timestamp'],
                 'proof':block['proof'],
-                'previous_hash':block['previous_hash']}  #respose is the message we type if the block is mined                                                       
+                'previous_hash':block['previous_hash'],
+                'transactions':block['transactions']}  #respose is the message we type if the block is mined                                                       
 
     return jsonify(response), 200 #jsonify returns the response in json format, 200 is the 'OK' HTTP status code
 
