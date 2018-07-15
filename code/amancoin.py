@@ -11,8 +11,8 @@ import json  # encode the blocks before hashing
 # jsonify is used to return the response of the requests
 from flask import Flask, jsonify, request #request is for having decentralisation
 import requests
-from uuid import uuid4
-from urllib.parse import urlparse
+from uuid import uuid4 #used to assign unique addresses
+from urllib.parse import urlparse #used to parse the url
 
 # Part 1-defining the blockchain class
 class Blockchain:  # Helps to create blocks
@@ -112,7 +112,7 @@ class Blockchain:  # Helps to create blocks
                 chain = response.json()['chain']
                 if length > max_length and self.is_chain_valid(chain): # if this node's length is greater than the max length & 
                     max_length = length                                # if the chain is valid in the node
-                    longest_chain = chain                              # the longest chain becomes the current node's chain(very important)
+                    longest_chain = chain                         # the longest chain becomes the current node's chain(very important)
 
         if longest_chain: #if the longest_chain has changed 
             self.chain = longest_chain #update the chain to the longest chain
@@ -122,6 +122,11 @@ class Blockchain:  # Helps to create blocks
 
 # creating the Web App
 app = Flask(__name__) # creating the app
+
+#creating an address for the node on Port 5000
+    #created to give a miner incentives & to have an unique address
+node_address = str(uuid4()).replace('-',' ') #this is the address of the node on port 5000
+
 
 # mining the blockchain
 blockchain = Blockchain() #creating our first blockchain
