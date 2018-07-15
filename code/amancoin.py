@@ -181,9 +181,26 @@ def add_transaction():
         return 'There are some elements that are missing', 400 #400 is the error code
     index = blockchain.add_transaction(json['sender'], json['receiver'], json['amount']) # accessing the values of json
     response = {'message':f'This transaction will be added to Block {index}'}  #(which is a dictionary), and send it to the method   
-    return jsonify(response), 201 #status code for post request.
+    return jsonify(response), 201 #success status code for post request.
+
+#Part 3 - Decentralizing our Blockchain
+
+# connecting new nodes
+@app.route('/connect_node',methods=['POST'])
+def connect_node():
+      json = request.get_json() 
+      nodes = json.get('nodes')
+      if nodes is None:
+        return "No node",400 #if there are no nodes, return error
+      for node in nodes:
+        blockchain.add_node(node)
+
+      response = {'message':'All the nodes are now connected. Amancoin now has nodes:',
+                   'total_nodes':list(blockchain.nodes)}
+      return jsonify(response), 201
+
 #running the app
 app.run(host = '0.0.0.0', port = 5000 )
 
 
-#Part 3 - Decentralizing our Blockchain
+
