@@ -103,7 +103,14 @@ class Blockchain:  # Helps to create blocks
     def replace_chain(self): #since in a specific node only this function would be called, we have self as a parameter.
         network = self.nodes #set of nodes all around the world
         longest_chain = None #initialise it to none as we don't have any idea of the length now
-        
+        max_length = len(self.chain) #initialise the variable to the length of the chain
+        for node in network:
+            response = requests.get{f'http://{node}/get_chain'} #f syntax introduced in python 3.6. prints the  ip address
+            if response.status_code == 200: #Success code for http. only for positive executions of requests we will consider
+                length = response.json()['length']
+                chain = response.json()['chain']
+                if length > max_length and self.is_chain_valid(chain) #
+
 
 # Part2-Mining the blockchain class. 
 
