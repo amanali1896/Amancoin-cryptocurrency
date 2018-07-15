@@ -106,7 +106,7 @@ class Blockchain:  # Helps to create blocks
         longest_chain = None #initialise it to none as we don't have any idea of the length now
         max_length = len(self.chain) #initialise the variable to the length of the chain
         for node in network:
-            response = requests.get{f'http://{node}/get_chain'} #f syntax introduced in python 3.6. prints the  ip address
+            response = requests.get{f'http://{node}/get_chain'} #f-string syntax introduced in python 3.6. prints the  ip address
             if response.status_code == 200: #Success code for http. only for positive executions of requests we will consider
                 length = response.json()['length']
                 chain = response.json()['chain']
@@ -180,8 +180,8 @@ def add_transaction():
     if not all (key in json for key in transaction_keys):
         return 'There are some elements that are missing', 400 #400 is the error code
     index = blockchain.add_transaction(json['sender'], json['receiver'], json['amount']) # accessing the values of json
-                                                                                        #(which is a dictionary)   
-
+    response = {'message':f'This transaction will be added to Block {index}'}  #(which is a dictionary), and send it to the method   
+    return jsonify(response), 201 #status code for post request.
 #running the app
 app.run(host = '0.0.0.0', port = 5000 )
 
