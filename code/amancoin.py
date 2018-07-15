@@ -112,8 +112,12 @@ class Blockchain:  # Helps to create blocks
                 chain = response.json()['chain']
                 if length > max_length and self.is_chain_valid(chain): # if this node's length is greater than the max length & 
                     max_length = length                                # if the chain is valid in the node
-                    longest_chain = chain                              # the longest chain becomes the current node's chain
+                    longest_chain = chain                              # the longest chain becomes the current node's chain(very important)
 
+        if longest_chain: #if the longest_chain has changed 
+            self.chain = longest_chain #update the chain to the longest chain
+            return True
+        return False #if there is no change in the longest_chain. i.e its value is still null.
 # Part2-Mining the blockchain class. 
 
 # creating the Web App
