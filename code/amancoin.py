@@ -98,7 +98,11 @@ class Blockchain:  # Helps to create blocks
 
     def add_node(self, address):
         parsed_url = urlparse(address) #parsing the address, we get a dictionary with scheme, netloc, path, param, query & fragment 
-        self.nodes.add(parsed_url.netloc) # netloc key has the address so we return that along with port number                            
+        self.nodes.add(parsed_url.netloc) # netloc key has the address so we return that along with port number
+
+    def replace_chain(self): #since in a specific node only this function would be called, we have self as a parameter.
+    
+
 # Part2-Mining the blockchain class. 
 
 # creating the Web App
