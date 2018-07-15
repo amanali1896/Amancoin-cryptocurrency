@@ -179,7 +179,7 @@ def add_transaction():
     transaction_keys = ['sender', 'receiver', 'amount']
     if not all (key in json for key in transaction_keys):
         return 'There are some elements that are missing', 400 #400 is the error code
-        
+    index = blockchain.add_transaction(json['sender'], json['receiver'], json['amount']) # accessing the values of json(which is a dictionary)   
 
 #running the app
 app.run(host = '0.0.0.0', port = 5000 )
