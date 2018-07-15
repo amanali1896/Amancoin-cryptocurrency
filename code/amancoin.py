@@ -9,8 +9,10 @@ import hashlib  # to hash the block
 import json  # encode the blocks before hashing
 # Flask is used to create an object which will be the web-app
 # jsonify is used to return the response of the requests
-from flask import Flask, jsonify
-
+from flask import Flask, jsonify, request #request is for having decentralisation
+import requests
+from uuid import uuid4
+from urllib.parse import urlparse
 
 # Part 1-defining the blockchain class
 class Blockchain:  # Helps to create blocks
@@ -128,3 +130,6 @@ def is_valid():
     return jsonify(response), 200
 #running the app
 app.run(host = '0.0.0.0', port = 5000 )
+
+
+#Part 3 - Decentralizing our Blockchain
