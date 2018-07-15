@@ -140,7 +140,7 @@ def mine_block():
     previous_proof = previous_block['proof']#gets the proof of work of the previous block
     proof = blockchain.proof_of_work(previous_proof) #proof of new block is calculated based on the previous block's proof of work
     previous_hash = blockchain.hash(previous_block) #calculates the hexadecimal hash
-    blockchain.add_transaction(sender = node_address, receiver = 'Aman', amount = 5) #5 coins as incentives to the miner
+    blockchain.add_transaction(sender = node_address, receiver = 'Aman', amount = 5) #5 coins as incentive to the miner
     block = blockchain.create_block(proof,previous_hash) #new block is created based on the information that's given.
                                                          #information is Proof of work and the hash of the previous block
     response = {'message':'The block was sucessfully mined.',
@@ -171,6 +171,16 @@ def is_valid():
     else:
         response = {'message':'There is an error.'}
     return jsonify(response), 200
+
+#adding a new transaction to the blockchain
+@app.route('/add_transaction',methods=['POST']) #post modifies some data and then retrieves it 
+def add_transaction():
+    json = request.get_json() #posts json file in postman
+    transaction_keys = ['sender', 'receiver', 'amount']
+    if not all (key in json for key in transaction_keys):
+        return 'There are some elements that are missing', 400 #400 is the error code
+        
+
 #running the app
 app.run(host = '0.0.0.0', port = 5000 )
 
