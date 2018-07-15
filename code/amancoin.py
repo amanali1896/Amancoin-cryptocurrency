@@ -25,6 +25,7 @@ class Blockchain:  # Helps to create blocks
         # proof of work is initialised to 1 and previous hash is initialised to 0.
         # As hash is encoded we initialised it with single quotes
         # This is the genesis block
+        self.node = set{} #nodes are in a set
 
     def create_block(self, proof, previous_hash):  # this is used to create a block and append it to blockchain
         block = {'index': len(self.chain) + 1,
@@ -70,6 +71,7 @@ class Blockchain:  # Helps to create blocks
 
         #encode(): We encode the block.
         return hashlib.sha256(encoded_block).hexdigest() #retuns hash in hexadecimal format 
+   
     def is_chain_valid(self, chain):
         previous_block = chain[0] #initialise the block||genesis block
         block_index = 1
@@ -92,7 +94,11 @@ class Blockchain:  # Helps to create blocks
                                    'receiver':receiver,
                                    'amount':amount}) # we create a dictionary and append it to the list
         previous_block = self.get_previous_block() #gets the previous block using the method defined above
-        return previous_block['index'] + 1 #updates the block index by 1.This new block will have the transactions in it.                               
+        return previous_block['index'] + 1 #updates the block index by 1.This new block will have the transactions in it.  
+
+    def add_node(self, address):
+        parsed_url = urlparse(address) #parsing the address, we get a dictionary with scheme, netloc, path, param, query & fragment 
+        self.nodes.add(parsed_url.netloc) # netloc key has the address so we return that along with port number                            
 # Part2-Mining the blockchain class. 
 
 # creating the Web App
