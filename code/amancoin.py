@@ -100,7 +100,8 @@ class Blockchain:  # Helps to create blocks
         parsed_url = urlparse(address) #parsing the address, we get a dictionary with scheme, netloc, path, param, query & fragment 
         self.nodes.add(parsed_url.netloc) # netloc key has the address so we return that along with port number
 
-    def replace_chain(self): #since in a specific node only this function would be called, we have self as a parameter.
+    def replace_chain(self): #used to find the longest chain. 
+        #since in a specific node only this function would be called, we have self as a parameter.
         network = self.nodes #set of nodes all around the world
         longest_chain = None #initialise it to none as we don't have any idea of the length now
         max_length = len(self.chain) #initialise the variable to the length of the chain
@@ -109,8 +110,9 @@ class Blockchain:  # Helps to create blocks
             if response.status_code == 200: #Success code for http. only for positive executions of requests we will consider
                 length = response.json()['length']
                 chain = response.json()['chain']
-                if length > max_length and self.is_chain_valid(chain) #
-
+                if length > max_length and self.is_chain_valid(chain): # if this node's length is greater than the max length & 
+                    max_length = length                                # if the chain is valid in the node
+                    longest_chain = chain                              # the longest chain becomes the current node's chain
 
 # Part2-Mining the blockchain class. 
 
