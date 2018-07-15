@@ -19,6 +19,8 @@ class Blockchain:  # Helps to create blocks
 
     def __init__(self):  # Constructor method
         self.chain = []  # empty list. supposed to contain the list of blocks
+        self.transactions = [] # transactions must be created here, 
+                         # not after below function, Since we first have transactions and then add it to a block
         self.create_block(proof=1, previous_hash='0')
         # proof of work is initialised to 1 and previous hash is initialised to 0.
         # As hash is encoded we initialised it with single quotes
@@ -27,11 +29,14 @@ class Blockchain:  # Helps to create blocks
     def create_block(self, proof, previous_hash):  # this is used to create a block and append it to blockchain
         block = {'index': len(self.chain) + 1,
                  'timestamp': str(datetime.datetime.now()),
-                 'proof': proof, 'previous_hash': previous_hash}
+                 'proof': proof, 'previous_hash': previous_hash
+                 'transactions':self.transactions}
         # 'index':chain+1 since we are creating a new block
         # 'timestamp': string because it will give no issues while using JSON.
         #  'proof': from proof of work function we pass proof as parameter
         # and that is what is equated to the key(proof)
+        # transactions are equated to the transactions list
+        self.transactions = [] #emptying the list since new transactions are added to a new block
         self.chain.append(block)  # add the blocks to the chain(list).
         return block  # return the parameters of the dictionary as it can be used to mine further blocks
 
@@ -82,7 +87,7 @@ class Blockchain:  # Helps to create blocks
 
         return True #if it wasn't false til now then it is valid, and hence true
 
-
+    def add_transactions(self,)    
 # Part2-Mining the blockchain class. 
 
 # creating the Web App
