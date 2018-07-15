@@ -101,7 +101,9 @@ class Blockchain:  # Helps to create blocks
         self.nodes.add(parsed_url.netloc) # netloc key has the address so we return that along with port number
 
     def replace_chain(self): #since in a specific node only this function would be called, we have self as a parameter.
-    
+        network = self.nodes #set of nodes all around the world
+        longest_chain = None #initialise it to none as we don't have any idea of the length now
+        
 
 # Part2-Mining the blockchain class. 
 
