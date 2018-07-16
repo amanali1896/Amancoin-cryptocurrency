@@ -7,6 +7,9 @@ Steps to run the project:
 3) Our decentralised blockchain is up and running.
 4) Open Postmaster app.
 5) Create 3 tabs by clicking on the plus button in postmaster app(refer demo folder image 2).
+6) Initialise all the three nodes by creating its genesis block by typing 'http://127.0.0.1:5001/get_chain',
+    'http://127.0.0.1:5002/get_chain' and 'http://127.0.0.1:5003/get_chain' (refer demo folder image 3).
+   
 
 
 
