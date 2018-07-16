@@ -3,7 +3,8 @@
 Steps to run the project:
 1) Import the files in an IDE
 2) Run the module
-3)
+3) Open Postmaster app
+4) 
 
 
 
