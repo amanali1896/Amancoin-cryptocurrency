@@ -1,4 +1,5 @@
 # Amancoin-cryptocurrency
+This project contains the code of a crypto-currency "Amancoin" and it is implemented using python programming language.
 
 Steps to run the project:
 1) Import the files in an IDE
