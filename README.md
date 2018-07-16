@@ -6,7 +6,7 @@ Steps to run the project:
 2) Run the 3 nodes on three seperate terminals in the IDE(refer demo folder image 1).
 3) Our decentralised blockchain is up and running.
 4) Open Postmaster app.
-5) Create 3 tabs by clicking on the plus button(refer demo folder image 2).
+5) Create 3 tabs by clicking on the plus button in postmaster app(refer demo folder image 2).
 
 
 
