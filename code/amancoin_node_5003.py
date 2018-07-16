@@ -25,12 +25,12 @@ class Blockchain:  # Helps to create blocks
         # proof of work is initialised to 1 and previous hash is initialised to 0.
         # As hash is encoded we initialised it with single quotes
         # This is the genesis block
-        self.node = set{} #nodes are in a set
+        self.node = set() #nodes are in a set
 
     def create_block(self, proof, previous_hash):  # this is used to create a block and append it to blockchain
         block = {'index': len(self.chain) + 1,
                  'timestamp': str(datetime.datetime.now()),
-                 'proof': proof, 'previous_hash': previous_hash
+                 'proof': proof, 'previous_hash': previous_hash,
                  'transactions':self.transactions}
         # 'index':chain+1 since we are creating a new block
         # 'timestamp': string because it will give no issues while using JSON.
@@ -106,7 +106,7 @@ class Blockchain:  # Helps to create blocks
         longest_chain = None #initialise it to none as we don't have any idea of the length now
         max_length = len(self.chain) #initialise the variable to the length of the chain
         for node in network:
-            response = requests.get{f'http://{node}/get_chain'} #f-string syntax introduced in python 3.6. prints the  ip address
+            response = requests.get(f'http://{node}/get_chain')#f-string syntax introduced in python 3.6. prints the  ip address
             if response.status_code == 200: #Success code for http. only for positive executions of requests we will consider
                 length = response.json()['length']
                 chain = response.json()['chain']
