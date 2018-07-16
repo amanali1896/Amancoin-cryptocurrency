@@ -1,7 +1,7 @@
 # Amancoin-cryptocurrency
 # Install Flask version 0.12.2 by using pip install Flask==0.12.2
 # Install Postman HTTP client: https://www.getpostman.com/
-# Install requests using pip install requests == 2.19.1
+# Install requests using pip install requests == 2.18.4
 
 # Importing libraries
 import datetime  # since each block will have its own time
