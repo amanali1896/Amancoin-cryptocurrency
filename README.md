@@ -32,6 +32,8 @@ Steps to run the project:
     Add the data in JSON format. Also note that in real life, we add the public key of the sender and reciever.
     (refer demo folder image 14).
 17) When we press enter we get the transaction notification (refer demo folder image 15).
+18) Amancoin is just transferred and added to a new block. But the transfer is not yet final till the time it is mined.
+    To mine the block, change the request type to "GET" and type http:127.0.0.1:5001/mine_block (refer demo folder image 16).
 
 
 
