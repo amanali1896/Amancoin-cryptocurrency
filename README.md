@@ -18,7 +18,8 @@ Steps to run the project:
 11) Our Blockchain is now fully connected.
 12) Now change the request type to "GET" for all the nodes.
 13)
-   
+
+
 
 Note: This repository uses the blockchain from my repository https://github.com/amanali1896/Blockchain-using-Python . 
 
