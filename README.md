@@ -19,6 +19,9 @@ Steps to run the project:
 12) Now change the request type to "GET" for all the nodes.
 13) Mine two blocks in node one by typing http://127.0.0.1:5001/mine_block and get the chain
     by typing http:127.0.0.1:5001/get_chain (refer demo folder image 7 and 8)
+14) When we type http://127.0.0.1:5002/get_chain and http://127.0.0.1:5003/get_chain in node 2 and 3 respectively, 
+    we see that only one block is there on the chain. This is because we did not update the chain yet
+    (refer demo folder image 9 and 10).
 
 
 
