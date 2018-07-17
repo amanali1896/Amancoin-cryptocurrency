@@ -57,6 +57,11 @@ Steps to run the project:
     in nodes 2 and 3 respectively (refer demo folder image 17 where I have shown the updated blockchain for node 2. 
     Node 3 shows a similar response.).
 
+20) Repeat steps from 17 to 19 for transferring Amancoins from node 1 to node 3.
+
+21) All the procedure is now complete. Incase you have any issues with the project you can feel free to mail me at my 
+    email address pamanalionline@gmail.com
+
 
 
 Note: This repository uses the blockchain from my repository https://github.com/amanali1896/Blockchain-using-Python . 
