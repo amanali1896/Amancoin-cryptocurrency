@@ -31,6 +31,7 @@ Steps to run the project:
     For this, change the requests type to post, click on body and select file type as JSON.
     Add the data in JSON format. Also note that in real life, we add the public key of the sender and reciever.
     (refer demo folder image 14).
+17) When we press enter we get the transaction notification (refer demo folder image 15).
 
 
 
