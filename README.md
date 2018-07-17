@@ -10,7 +10,7 @@ Steps to run the project:
 5) Create 3 tabs by clicking on the plus button in postmaster app(refer demo folder image 2).
 6) Initialise all the three nodes by creating its genesis block by typing 'http://127.0.0.1:5001/get_chain',
     'http://127.0.0.1:5002/get_chain' and 'http://127.0.0.1:5003/get_chain' (refer demo folder image 3).
-7) Select "POST" from drop down for all the nodes(refer demo folder image 4).
+7) Select "POST" from drop down for all the nodes and enter http://127.0.0.1:5001/connect_node (refer demo folder image 4).
 8) Click on body, then select raw. After that select JSON option in node 1 (refer demo folder image 5).
    
 
