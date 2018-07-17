@@ -1,7 +1,7 @@
 # Amancoin-cryptocurrency
 # Install Flask version 0.12.2 by using pip install Flask==0.12.2
 # Install Postman HTTP client: https://www.getpostman.com/
-# Install requests using pip install requests == 2.18.4
+# Install requests using pip install requests == 2.19.1
 
 # Importing libraries
 import datetime  # since each block will have its own time
@@ -25,7 +25,7 @@ class Blockchain:  # Helps to create blocks
         # proof of work is initialised to 1 and previous hash is initialised to 0.
         # As hash is encoded we initialised it with single quotes
         # This is the genesis block
-        self.node = set() #nodes are in a set
+        self.nodes = set() #nodes are in a set
 
     def create_block(self, proof, previous_hash):  # this is used to create a block and append it to blockchain
         block = {'index': len(self.chain) + 1,
@@ -186,7 +186,7 @@ def add_transaction():
 #Part 3 - Decentralizing our Blockchain
 
 # connecting new nodes
-@app.route('/connect_node',methods=['POST'])
+@app.route('/connect_node',methods = ['POST'])
 def connect_node():
       json = request.get_json() 
       nodes = json.get('nodes') # nodes in the json file
