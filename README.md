@@ -51,6 +51,11 @@ Steps to run the project:
 
 18) Amancoin is just transferred and added to a new block. But the transfer is not yet final till the time it is mined.
     To mine the block, change the request type to "GET" and type http:127.0.0.1:5001/mine_block (refer demo folder image 16).
+ 
+19) Now when we have mined the block. But one thing to notice is that we have to update the blockchains in node 2 and node 3.
+    To update the blockchains in those nodes, type http://127.0.0.1:5002/replace_chain and http://127.0.0.1:5003/replace_chain 
+    in nodes 2 and 3 respectively (refer demo folder image 17 where I have shown the updated blockchain for node 2. 
+    Node 3 works in a similar way.).
 
 
 
