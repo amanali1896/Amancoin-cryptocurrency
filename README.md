@@ -12,8 +12,9 @@ Steps to run the project:
     'http://127.0.0.1:5002/get_chain' and 'http://127.0.0.1:5003/get_chain' (refer demo folder image 3).
 7) Select "POST" from drop down for all the nodes and enter http://127.0.0.1:5001/connect_node (refer demo folder image 4).
 8) Click on body, then select raw. After that select JSON option in node 1 (refer demo folder image 5).
-9) Type the nodes addresses in JSON format and hit send. You will see the confirmation
+9) Type the nodes addresses(of the remaining nodes) in JSON format and hit send. You will see the confirmation
    with nodes being connected(refer demo folder image 6).
+10) Repeat step 9 for all the three nodes.
    
 
 Note: This repository uses the blockchain from my repository https://github.com/amanali1896/Blockchain-using-Python . 
